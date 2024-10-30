@@ -31,6 +31,10 @@ pipeline {
                 // 停止並移除任何使用 3000 端口的容器
                 sh 'docker ps -q --filter "ancestor=my-simple-api" | xargs -r docker stop || true'
                 sh 'docker ps -a -q --filter "ancestor=my-simple-api" | xargs -r docker rm || true'
+
+                // 停止並移除任何使用 3000 端口的其他容器
+                sh 'docker ps --filter "publish=3000" -q | xargs -r docker stop || true'
+                sh 'docker ps -a --filter "publish=3000" -q | xargs -r docker rm || true'
             }
         }
         stage('Run Docker Container') {
