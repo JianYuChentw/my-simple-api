@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // 拉取代碼
-                git 'https://github.com/JianYuChentw/my-simple-api.git'
+                git branch: 'main', url: 'https://github.com/JianYuChentw/my-simple-api.git'
             }
         }
         stage('Install Dependencies') {
