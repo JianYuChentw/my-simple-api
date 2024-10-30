@@ -16,6 +16,6 @@ describe('GET /api/message', () => {
     it('should return a JSON object with a message', async () => {
         const res = await request(app).get('/api/message');
         expect(res.statusCode).toEqual(200);
-        expect(res.body).toHaveProperty('message', 'Hello, Jenkins CI/CD!');
+        expect(res.body).toHaveProperty('message', 'Hello,我來更新你了！ Jenkins CI/CD!');
     });
 });
