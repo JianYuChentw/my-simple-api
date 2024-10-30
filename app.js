@@ -7,8 +7,4 @@ app.get('/api/message', (req, res) => {
     res.json({ message: "Hello, Jenkins CI/CD!" });
 });
 
-app.listen(PORT, () => {
-    console.log(`Server listening on http://localhost:${PORT}`);
-});
-
-module.exports = app;
+module.exports = app;  // 只導出 app 實例，沒有啟動伺服器
