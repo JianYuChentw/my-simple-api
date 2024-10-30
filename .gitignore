@@ -1,0 +1,22 @@
+# 忽略 node_modules 資料夾
+node_modules/
+
+# 忽略環境變數文件
+.env
+
+# 忽略日誌文件
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# 忽略 Docker 构建缓存
+.dockerignore
+
+# 忽略 macOS 系統文件
+.DS_Store
+
+# 忽略 VSCode 設定文件
+.vscode/
+
+# 忽略其他暫存文件
+.cache/
