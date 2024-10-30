@@ -26,6 +26,13 @@ pipeline {
                 sh 'docker build -t my-simple-api .'
             }
         }
+        stage('Stop Existing Container') {
+            steps {
+                // 停止並移除任何使用 3000 端口的容器
+                sh 'docker ps -q --filter "ancestor=my-simple-api" | xargs -r docker stop || true'
+                sh 'docker ps -a -q --filter "ancestor=my-simple-api" | xargs -r docker rm || true'
+            }
+        }
         stage('Run Docker Container') {
             steps {
                 sh 'docker run -d -p 3000:3000 my-simple-api'
