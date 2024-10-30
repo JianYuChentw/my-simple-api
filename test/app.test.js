@@ -3,9 +3,14 @@ const request = require('supertest');
 const app = require('../app');
 
 let server;
+let port;
 
-beforeAll(() => {
-    server = app.listen(3000, () => console.log("Test server running"));
+beforeAll(done => {
+    server = app.listen(0, () => {  // 使用 0 讓系統自動選擇端口
+        port = server.address().port;  // 獲取隨機分配的端口
+        console.log(`Test server running on port ${port}`);
+        done();
+    });
 });
 
 afterAll(done => {
