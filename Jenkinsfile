@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        PATH = "/usr/local/bin:$PATH"  // 添加 node 的路徑到 PATH
+    }
+
     stages {
         stage('Checkout') {
             steps {
